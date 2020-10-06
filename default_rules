@@ -1,0 +1,15 @@
+# Set default rules
+---
+rules: |
+ -P INPUT DROP
+ -P FORWARD DROP
+ -A INPUT -i lo -j ACCEPT
+ -A INPUT -p icmp --icmp-type echo-reply -j ACCEPT
+ -A INPUT -p icmp --icmp-type destination-unreachable -j ACCEPT
+ -A INPUT -p icmp --icmp-type time-exceeded -j ACCEPT
+ -A INPUT -p icmp --icmp-type echo-request -j ACCEPT
+ -A INPUT -p all -m state --state ESTABLISHED,RELATED -j ACCEPT
+ -A FORWARD -p all -m state --state ESTABLISHED,RELATED -j ACCEPT
+ -A INPUT -m state --state INVALID -j DROP
+ -A FORWARD -m state --state INVALID -j DROP
+ -A INPUT -p tcp --dport 10022 -j ACCEPT
