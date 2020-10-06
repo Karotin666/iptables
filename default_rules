@@ -1,5 +1,5 @@
-# Set default rules
 ---
+# Set default rules
 rules: |
  -P INPUT DROP
  -P FORWARD DROP
