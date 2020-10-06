@@ -1,4 +1,4 @@
-# Set default rules
+# Set default rules (test)
 ---
 rules: |
  -P INPUT DROP
